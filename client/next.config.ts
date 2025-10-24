@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       {
         protocol: process.env.NODE_ENV === "development" ? "http" : "https",
         hostname: STRAPI_HOSTNAME,
-        pathname: "/uploads/**/*",
+        pathname: "/**",
       },
     ],
   },
