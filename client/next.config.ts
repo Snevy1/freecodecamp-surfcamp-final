@@ -1,17 +1,21 @@
 import type { NextConfig } from "next";
 
+const STRAPI_HOSTNAME =
+  process.env.NEXT_PUBLIC_STRAPI_DOMAIN?.replace(/^https?:\/\//, "") ||
+  "localhost";
+
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "1337",
+        protocol: process.env.NODE_ENV === "development" ? "http" : "https",
+        hostname: STRAPI_HOSTNAME,
         pathname: "/uploads/**/*",
       },
     ],
   },
 };
+
+
 
 export default nextConfig;
